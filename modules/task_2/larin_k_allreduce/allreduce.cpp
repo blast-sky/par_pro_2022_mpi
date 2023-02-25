@@ -2,7 +2,6 @@
 #include <mpi.h>
 
 #include <algorithm>
-#include <execution>
 #include <functional>
 #include <memory>
 #include <utility>
@@ -24,7 +23,7 @@ static std::function<T(const T&, const T&)> get_reduce_function(MPI_Op op) {
   } else if (op == MPI_PROD) {
     return std::multiplies<T>{};
   } else {
-    throw std::logic_error("wrong operation");
+    throw 1;
     return std::plus<T>{};
   }
 }
